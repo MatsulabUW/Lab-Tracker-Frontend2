@@ -5,12 +5,12 @@ pages:
     key:
       files:
         - package-lock.json
-      prefix: pnpm
+      prefix: npm
     paths:
       - node_modules/
   script:
-    - pnpm install
-    - pnpm run build
+    - npm install
+    - npm run build
     - cp -a dist/. public/
   artifacts:
     paths:
