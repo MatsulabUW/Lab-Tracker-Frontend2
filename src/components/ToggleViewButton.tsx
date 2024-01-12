@@ -5,7 +5,7 @@ type Props = {
   setIsGridView: (isGridView: boolean) => void;
 };
 
-export default function ToggleViewButton({ isGridView, setIsGridView }: Props) {
+export default function ToggleViewButton({ setIsGridView }: Props) {
   return (
     <div className="w-100 flex justify-content-end">
       <button onClick={() => setIsGridView(true)}>

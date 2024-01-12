@@ -39,11 +39,13 @@ export default function HistoryContent() {
     }
   };
 
+  // need to fix this
   useEffect(() => {
     fetchHistory();
     fetchItemById({ id: 1, type: "equipments" }).then((data) => {
       console.log(data);
       setItemData(data);
+      console.log(itemData);
     });
   }, []);
 
