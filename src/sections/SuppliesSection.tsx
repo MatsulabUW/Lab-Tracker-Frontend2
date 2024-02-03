@@ -8,7 +8,7 @@ import SuppliesFilter from "./SuppliesFilter";
 import SuppliesTable from "./SuppliesTable";
 
 export default function SuppliesSection() {
-  const [query, setQuery] = useState<string>("");
+  const [search, setSearch] = useState<string>("");
   const [category, setCategory] = useState<{ label: string; value: string }>({
     label: "All",
     value: "",
@@ -21,10 +21,12 @@ export default function SuppliesSection() {
   const [isGridView, setIsGridView] = useState<boolean>(true);
 
   const { data, isLoading } = useQuery(
-    ["supplies", query, category.value, status.join(","), before, after],
+    ["supplies", search, category.value, status.join(","), before, after],
     async () => {
-      const url = new URL("http://localhost:8080/supplies");
-      url.searchParams.append("query", query);
+      const url = new URL(
+        "https://lab-tracker-backend.labtracker2000.workers.dev/api/supplies"
+      );
+      url.searchParams.append("search", search);
       url.searchParams.append("category", category.value);
       url.searchParams.append("status", status.join(","));
       url.searchParams.append(
@@ -53,8 +55,8 @@ export default function SuppliesSection() {
   return (
     <SuppliesContext.Provider
       value={{
-        query,
-        setQuery,
+        search: search,
+        setSearch: setSearch,
         category,
         setCategory,
         status,
@@ -81,10 +83,10 @@ export default function SuppliesSection() {
                   <p className="text-2xl font-bold text-gray-900">Loading...</p>
                 </div>
               )}
-              <SuppliesContent supplies={data?.supplies} />
+              <SuppliesContent supplies={data?.results} />
             </section>
           ) : (
-            <SuppliesTable supplies={data?.supplies} />
+            <SuppliesTable supplies={data?.results} />
           )}
         </div>
       </div>

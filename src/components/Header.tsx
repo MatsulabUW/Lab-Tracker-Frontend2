@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="flex justify-between items-center">
       <a href="/">
-        <h1 className="font-bold text-4xl">LabTracker!</h1>
+        <h1 className="font-bold text-4xl">LabTracker</h1>
       </a>
       <div>
         <UserButton />

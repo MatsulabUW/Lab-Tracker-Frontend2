@@ -12,8 +12,8 @@ const options = [
 
 export default function SuppliesFilter() {
   const {
-    query,
-    setQuery,
+    search,
+    setSearch,
     category,
     setCategory,
     status,
@@ -32,8 +32,8 @@ export default function SuppliesFilter() {
         <label className="block text-lg text-gray-900">Search</label>
         <input
           type="text"
-          value={query}
-          onChange={(evt) => setQuery(evt.currentTarget.value)}
+          value={search}
+          onChange={(evt) => setSearch(evt.currentTarget.value)}
           className="w-full rounded-md p-2 border border-gray-300 focus:outline-none focus:border-blue-300"
         />
       </div>

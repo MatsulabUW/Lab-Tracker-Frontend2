@@ -4,8 +4,8 @@
 import { createContext } from "react";
 
 type SuppliesContextType = {
-  query: string;
-  setQuery: (query: string) => void;
+  search: string;
+  setSearch: (query: string) => void;
   category: { label: string; value: string };
   setCategory: (category: { label: string; value: string }) => void;
   status: ("expired" | "out-of-stock" | "need-to-order")[];
@@ -17,8 +17,8 @@ type SuppliesContextType = {
 };
 
 const SuppliesContext = createContext<SuppliesContextType>({
-  query: "",
-  setQuery: () => {},
+  search: "",
+  setSearch: () => {},
   category: { label: "All", value: "All" },
   setCategory: () => {},
   status: [],

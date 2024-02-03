@@ -1,11 +1,11 @@
 import InventoryButton from "../components/InventoryButton";
 
 type Supply = {
-  ID: number;
-  Name: string;
+  SupplyID: number;
+  InformalDescription: string;
   ImageURL: string;
-  Expires: string;
-  Stock: number;
+  ExpireDate: string;
+  NumberInStock: number;
 };
 
 type Props = {
@@ -18,7 +18,7 @@ export default function SuppliesTable({ supplies }: Props) {
   }
 
   return (
-    <table className="mt-3 w-100 pl-3">
+    <table className="mt-3 w-100 pl-3 gap-3">
       <thead className="bg-gray-100">
         <tr>
           <th className="px-10 py-3">Name</th>
@@ -30,24 +30,24 @@ export default function SuppliesTable({ supplies }: Props) {
       </thead>
       <tbody>
         {supplies.map((supply) => (
-          <tr key={supply.ID}>
-            <td className="pr-10">{supply.Name}</td>
+          <tr key={supply.SupplyID}>
+            <td className="pr-10">{supply.InformalDescription}</td>
             <td className="pl-8">
               <img
                 className="w-12 h-12"
                 src={supply.ImageURL}
-                alt={supply.Name}
+                alt={supply.InformalDescription}
               />
             </td>
             <td className="px-10">
-              {new Date(supply.Expires).toLocaleDateString()}
+              {new Date(supply.ExpireDate).toLocaleDateString()}
             </td>
-            <td className="px-20">{supply.Stock}</td>
+            <td className="px-20">{supply.NumberInStock}</td>
             <td>
               <InventoryButton
-                id={supply.ID}
+                id={supply.SupplyID}
                 type="supplies"
-                canAdd={supply.Stock > 0}
+                canAdd={supply.NumberInStock > 0}
               />
             </td>
           </tr>

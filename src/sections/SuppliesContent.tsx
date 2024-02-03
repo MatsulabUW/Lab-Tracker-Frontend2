@@ -1,12 +1,12 @@
 import ItemCard from "../components/ItemCard";
 
 type Supply = {
-  ID: number;
+  SupplyID: number;
   type: "supply";
-  Name: string;
+  InformalDescription: string;
   ImageURL: string;
-  Expires: string;
-  Stock: number;
+  ExpireDate: string;
+  NumberInStock: number;
 };
 
 type Props = {
@@ -22,13 +22,13 @@ export default function SuppliesContent({ supplies }: Props) {
     <>
       {supplies.map((supply) => (
         <ItemCard
-          key={supply.ID}
-          id={supply.ID}
+          key={supply.SupplyID}
+          id={supply.SupplyID}
           type="supplies"
-          name={supply.Name}
+          name={supply.InformalDescription}
           image={supply.ImageURL}
-          expire={new Date(supply.Expires)}
-          stock={supply.Stock}
+          expire={new Date(supply.ExpireDate)}
+          stock={supply.NumberInStock}
         />
       ))}
     </>
