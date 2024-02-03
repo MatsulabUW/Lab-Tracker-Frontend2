@@ -16,7 +16,7 @@ const client = new QueryClient({
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/LabTracker",
     element: <MainPage />,
   },
   {
