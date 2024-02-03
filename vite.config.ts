@@ -1,5 +1,6 @@
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,7 +8,10 @@ export default defineConfig({
   base: '/Lab-Tracker-Frontend2/',
   server: {
     headers: {
-      'Content-Security-Policy': "default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';"
-    }
+      "Strict-Transport-Security": "max-age=86400; includeSubDomains", // Adds HSTS options to your website, with a expiry time of 1 day
+      "X-Content-Type-Options": "nosniff", // Protects from improper scripts runnings
+      "X-Frame-Options": "DENY", // Stops your site being used as an iframe
+      "X-XSS-Protection": "1; mode=block", // Gives XSS protection to legacy browsers
+    },
   },
 })
